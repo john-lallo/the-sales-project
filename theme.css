@@ -1,0 +1,43 @@
+        html, body{
+            margin: 0;
+            padding: 0;
+
+            color: #444;
+            background-color: #eee; 
+            
+            font-size: 24px;
+            
+            font-family: 'Lato', Helvetica, sans-serif;
+
+        }
+        
+        h1 { margin: 16px; }
+        
+        h2 { margin: 16px; }
+        
+        hr {
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .buttn {
+            margin: 0;
+            padding: 8px;
+            
+            border: none;
+            
+            color: #fff;
+            
+            width: 152px;
+            
+            transition: 0.1s;
+        }
+        
+        .G { background-color: #66c285; }
+        .G:hover { background-color: #009933; }
+        
+        .buttn:focus{
+            outline: none;
+        }
