@@ -19,9 +19,9 @@ session_start();
 
 <body>
 
-    <!-- HEADER -->
+   <!-- HEADER -->
     <div style = "width: 100%; padding: 24px; background-color: #fff">
-        <center style = "font-weight: 300; font-size: 60px">THE SALES PROJECT</center>
+        <center style = "font-weight: 300; font-size: 60px; cursor: default" onclick = "window.location = '/the-sales-project/'">THE SALES PROJECT</center>
     </div>
 
     <!--CONTAINER-->
@@ -39,9 +39,6 @@ session_start();
         
         <!-- item description -->
         <div style = "width: 800px; background-color: #fff; margin: 16px auto; overflow: hidden;">
-        
-            <br>
-            <br>
             
             <img src = "<?php echo $row['imag'] ?>" width = "100%">
             
@@ -55,7 +52,10 @@ session_start();
             
             -->
             
-            <h1><?php echo strtoupper($row['name']); ?></h1>
+            <h1>
+            <?php echo strtoupper($row['name']); ?>
+            <a style = "font-size: 24px" href = "itemedit.php?i=<?php echo $row['identifi'];?>">EDIT</a>
+            </h1>
     
             <hr>
         

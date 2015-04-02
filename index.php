@@ -12,12 +12,26 @@ if(!isset($_SESSION['UID'])){ header('Location: login.php'); }
     <meta charset = 'utf-8'>
     <title>TSP V0</title>
     
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script>
+    
+        function backdrop(id, flag){
+            if(flag){
+                $('#backdrop_' + id).fadeIn(200);
+            }else{
+                $('#backdrop_' + id).fadeOut(200);
+            }
+        }
+    </script>
+    
     <link href = 'http://fonts.googleapis.com/css?family=Lato:300,400,900' rel = 'stylesheet' type = 'text/css'>
     <link href = 'theme.css' rel = 'stylesheet' type = 'text/css'>
     
     <style>
     
     .add-newblok {
+        position: relative;
+    
         width: 320px;
         height: 320px;
         margin: 16px;
@@ -33,6 +47,8 @@ if(!isset($_SESSION['UID'])){ header('Location: login.php'); }
     }
     
     .prodblok {
+        position: relative;
+    
         width: 320px;
         height: 320px;
         margin: 16px;
@@ -42,6 +58,17 @@ if(!isset($_SESSION['UID'])){ header('Location: login.php'); }
         background-color: #fff;
         transition: 0.2s;
     }
+    
+    .backdrop{
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+        display: none;
+    }
 
     </style>
     
@@ -49,9 +76,9 @@ if(!isset($_SESSION['UID'])){ header('Location: login.php'); }
 
 <body>
 
-    <!-- HEADER -->
-    <div style = "width: 100%; padding: 24px; background-color: #fff;">
-        <center style = "font-weight: 300; font-size: 60px">THE SALES PROJECT</center>
+   <!-- HEADER -->
+    <div style = "width: 100%; padding: 24px; background-color: #fff">
+        <center style = "font-weight: 300; font-size: 60px; cursor: default" onclick = "window.location = '/the-sales-project/'">THE SALES PROJECT</center>
     </div>
 
     <!--CONTAINER-->
@@ -60,7 +87,7 @@ if(!isset($_SESSION['UID'])){ header('Location: login.php'); }
     <br>
     
         <!-- new product-->
-        <div class = "add-newblok">
+        <div class = "add-newblok" onclick = "window.location = 'itemedit.php?i=0';">
         <div style = "width: 304px; height: 304px; margin: 4px; border: 4px dashed #fff;">
             <center style = "font-size: 40px;font-weight: 900; color: #fff"><br><br><u>ADD NEW</u></center>
         </div>
@@ -80,8 +107,16 @@ if(!isset($_SESSION['UID'])){ header('Location: login.php'); }
         ?>
     
         <div class = "prodblok"
-        style = "background: url(<?php echo $row['imag'] ?>) no-repeat center; background-size: cover;">
+        style = "background: url(<?php echo $row['imag'] ?>) no-repeat center; background-size: cover;"
         
+        onmouseenter = "backdrop(<?php echo $row['identifi']?>, true);"
+        onmouseleave = "backdrop(<?php echo $row['identifi']?>, false);"
+        onclick = "window.location = 'shelf.php?i=<?php echo $row['identifi']; ?>';"
+        >
+        
+            <div class = "backdrop" id = "backdrop_<?php echo $row['identifi']?>">
+            
+            </div>
             <!--
             
             +-----------+

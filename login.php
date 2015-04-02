@@ -20,7 +20,7 @@
     <div>
     <center>
         
-        <div = style = "width: 260px; background-color: #ffffff; padding: 8px 0; margin: 120px 16px 16px 16px">
+        <div style = "width: 800px; background-color: #ffffff; padding: 8px 0; margin: 120px 16px 16px 16px">
         <h1>LOGIN</h1>
         
         <hr>

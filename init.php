@@ -89,8 +89,13 @@
         
     $res = $database -> query('INSERT INTO merch
     (name, manu, info, imag, ptag) VALUES
-    ("item 418 Utah Teapot", "foo", "'.$lorem_ipsum.'", "http://i.imgur.com/MR6CWvQ.jpg", 1024);');
+    ("Utah Teapot", "foo", "'.$lorem_ipsum.'", "http://i.imgur.com/MR6CWvQ.jpg", 1024);');
     
+    $res = $database -> query('INSERT INTO merch
+    (identifi, name, manu, info, imag, ptag) VALUES
+    (-999, "Mystery Box", "foo", "'.$lorem_ipsum.'", "http://i.imgur.com/sZWy5ls.jpg", 512);');
+
+
     if(!$res){ echo "integrity test failed on table: merch"; }
     
     
